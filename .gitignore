@@ -1,2 +1,3 @@
 *.swp
 CCLE_inferred_prot_abundance.tab
+.ipynb*
