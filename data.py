@@ -1,7 +1,6 @@
 # Author: Massoud Maher
 
 import pandas as pd
-import os
 
 class CellGene:
   """Class for reading in cell-gene matrix and fetching data from it
@@ -42,6 +41,41 @@ class CellGene:
     """
     try:
       return self.cell_matrix.loc[cell_line, gene]
+    except KeyError:
+      return None
+
+
+  def get_abundance_json(self, cell_line, gene):
+    """Fetches the abundance value for a given cell-line / gene pair
+
+    Args:
+      cell_line: String that is name of cell line or set of those names
+      gene: String that is name of gene or set of those names
+
+    Returns:
+      A JSON string representing the associated abundance values of cell_line and gene in the following format
+
+      {
+        "cell_line_name":
+          {
+            "gene_name":abundance_val
+            ...
+          },
+
+        ...
+
+        "cell_line_name":
+          {
+            "gene_name":abundance_val
+            ...
+          }
+        }
+
+      Returns Null if input is invalid (including integers) or not found in matrix
+    """
+    try:
+      results = self.cell_matrix.loc[cell_line, gene]
+      return results.to_json(orient='index')
     except KeyError:
       return None
 
