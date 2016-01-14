@@ -11,7 +11,6 @@ class CellGeneService:
   """
 
   
-
   @route('/hello/<name>')
   def index(name):
       return template('<b>Hello {{name}}</b>!', name=name)
@@ -23,6 +22,10 @@ class CellGeneService:
     name = request.cookies.username or 'Guest'
     return template('Hello {{name}}', name=name)
 
+  @route('/context/expression/cell_line/<gene_set>', method='POST')
+  def get_json(self):
+    username = request.forms.get('username')
+    return template('Hello {{gene_set}}', name=name)
 
 
   def main():
