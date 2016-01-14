@@ -41,8 +41,8 @@ class CellGene:
     """
     try:
       return self.cell_matrix.loc[cell_line, gene]
-    except KeyError:
-      return None
+    except:
+     return None
 
 
   def get_abundance_json(self, cell_line, gene):
@@ -83,4 +83,6 @@ class CellGene:
 # "main"
 cg = CellGene()
 #cg.test()
-print cg.get_abundance(2, 3)
+        
+print cg.get_abundance(["MED6", "AKT3"], ["X786O_KIDNEY", "LN18_CENTRAL_NERVOUS_SYSTEM"])
+print cg.get_abundance_json(["MED6", "AKT3"], ["X786O_KIDNEY", "LN18_CENTRAL_NERVOUS_SYSTEM"])

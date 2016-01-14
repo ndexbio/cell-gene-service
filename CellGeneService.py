@@ -1,6 +1,7 @@
 # Author: Massoud Maher
 
 import json
+import CellGene
 from bottle import route, run, template, request
 
 class CellGeneService:
@@ -9,6 +10,7 @@ class CellGeneService:
 
   """
 
+  
 
   @route('/hello/<name>')
   def index(name):
@@ -26,5 +28,5 @@ class CellGeneService:
   def main():
     run(host='localhost', port=8080, debug=True)
 
-  if __name == "__main__":
+  if __name__ == "__main__":
     main()
