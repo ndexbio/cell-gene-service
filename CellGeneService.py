@@ -1,7 +1,7 @@
 # Author: Massoud Maher
 
 import json
-import CellGene
+from CellGene import CellGene
 from bottle import route, run, template, request
 
 class CellGeneService:
@@ -22,10 +22,11 @@ class CellGeneService:
     name = request.cookies.username or 'Guest'
     return template('Hello {{name}}', name=name)
 
-  @route('/context/expression/cell_line/<gene_set>', method='POST')
-  def get_json(self):
-    username = request.forms.get('username')
-    return template('Hello {{gene_set}}', name=name)
+  @route('/context/expression/cell_line/<gene_set>', method='GET')
+  def get_json(gene_set):
+    cg = CellGene()
+    output = cg.get_abundance_json(gene_set, ['X769P_KIDNEY', 'X786O_KIDNEY'])
+    return output
 
 
   def main():

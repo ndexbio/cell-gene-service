@@ -2,7 +2,11 @@
 
 import pandas as pd
 
-class CellGene:
+# TODO change program so matrix is not read in upon import
+# TODO make it so main is not rain on import either
+# TODO if output is numpy64 (single number) to_json is called and causes error
+# TODO if accessing single gene (single row) output does not have the name of that row in json
+class CellGene(object):
   """Class for reading in cell-gene matrix and fetching data from it
 
   Attributes:
