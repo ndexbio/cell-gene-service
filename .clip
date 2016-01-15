@@ -1,0 +1,19 @@
+      A JSON string representing the associated abundance values of cell_line and gene in the following format
+
+      {
+        "gene_name":
+          {
+            "cell_line_name":abundance_val
+            ...
+          },
+
+        ...
+
+        "gene_name":
+          {
+            "cell_line_name":abundance_val
+            ...
+          }
+        }
+
+      Returns Null if input is invalid (including integers) or not found in matrix

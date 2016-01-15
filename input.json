@@ -1,0 +1,14 @@
+{
+	"AKT3": {
+		"cell_lines" : [
+			"X769P_KIDNEY",
+			"X786O_KIDNEY"
+		]	
+	},
+	"MED6": {
+		"cell_lines" : [
+			"X769P_KIDNEY",
+			"X786O_KIDNEY"	
+		]
+	}
+}

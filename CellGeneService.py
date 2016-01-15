@@ -8,8 +8,8 @@ class CellGeneService:
   """Runs REST service that fetches abundance values for cell-gene pair"""
 
 
-  @route('/context/expression/cell_line/gene_set=<gene_set>', method='GET')
-  def get_json(gene_set):
+  @route('/context/expression/cell_line/gene_set=<gene_set>cell_line_set=<cell_line_set>', method='GET')
+  def get_json(gene_set, cell_line_set):
     """Returns a JSON of abundance values for the provided inputs
 
     Args:
