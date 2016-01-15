@@ -25,7 +25,9 @@ class CellGeneService:
   @route('/context/expression/cell_line/<gene_set>', method='GET')
   def get_json(gene_set):
     cg = CellGene()
-    output = cg.get_abundance_json(gene_set, ['X769P_KIDNEY', 'X786O_KIDNEY'])
+    gene_list = gene_set.split(',')
+    output = cg.get_abundance_json(gene_list, ['X769P_KIDNEY', 'X786O_KIDNEY'])
+    print('output is : ' + str(output))
     return output
 
 
