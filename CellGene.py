@@ -60,17 +60,17 @@ class CellGene(object):
       A JSON string representing the associated abundance values of cell_line and gene in the following format
 
       {
-        "cell_line_name":
+        "gene_name":
           {
-            "gene_name":abundance_val
+            "cell_line_name":abundance_val
             ...
           },
 
         ...
 
-        "cell_line_name":
+        "gene_name":
           {
-            "gene_name":abundance_val
+            "cell_line_name":abundance_val
             ...
           }
         }
@@ -83,10 +83,3 @@ class CellGene(object):
     except KeyError:
       return None
 
-
-# "main"
-cg = CellGene()
-#cg.test()
-        
-print cg.get_abundance(["MED6", "AKT3"], ["X786O_KIDNEY", "LN18_CENTRAL_NERVOUS_SYSTEM"])
-print cg.get_abundance_json(["MED6", "AKT3"], ["X786O_KIDNEY", "LN18_CENTRAL_NERVOUS_SYSTEM"])
