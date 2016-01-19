@@ -6,5 +6,9 @@
 	"MED6": [
 		"X769P_KIDNEY",
 		"X786O_KIDNEY"
+	],
+	"NR2E3": [
+		"CAOV3_OVARY",
+		"HEPG2_LIVER"
 	]
 }

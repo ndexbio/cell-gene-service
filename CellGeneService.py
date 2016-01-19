@@ -1,10 +1,12 @@
 # Author: Massoud Maher
 
 import json
+import pandas as pd
 from CellGene import CellGene
 from bottle import route, run, template, request
 
 # TODO put json format in README
+# TODO remove duplicates from JSON before requesting. duplicate cell-lines result in "cannot reindex from a duplicate axis"
 class CellGeneService:
   """Runs REST service that fetches abundance values for cell-gene pair"""
 
@@ -42,11 +44,29 @@ class CellGeneService:
     # Dictionary of gene:cell pairs
     input_set = request.json
 
+    cg = CellGene()
+    output_df = pd.DataFrame()
+
 
     # For each gene
-    for(key in input_set.keys()):
-      abundance_list = get
+    for key in input_set.keys():
+      # Get abundance for its associated cells and add into output_dict
+      abundance_list = cg.get_abundance(key, input_set[key])
 
+      print "--------------- abundance list --------"
+      print abundance_list
+
+      output_df = output_df.append(abundance_list)
+
+      print "----------------- output_df -----------------"
+      print output_df
+
+
+    print "---------- index json -------------"
+    print output_df.to_json(orient="index")
+    
+    print "---------- column json -------------"
+    print output_df.to_json()
 
 
 
