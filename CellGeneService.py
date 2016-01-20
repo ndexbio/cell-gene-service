@@ -32,7 +32,10 @@ class CellGeneService:
     # For each gene
     for key in input_set.keys():
       # Get abundance for its associated cells and append onto output_df
-      abundance_list = cg.get_abundance(key, input_set[key])
+
+      # Remove duplicates
+      cell_lines = set(input_set[key])
+      abundance_list = cg.get_abundance(key, cell_lines)
 
       print "--------------- abundance list --------"
       print abundance_list

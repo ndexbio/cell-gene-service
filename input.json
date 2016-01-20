@@ -7,8 +7,10 @@
 		"X769P_KIDNEY",
 		"X786O_KIDNEY"
 	],
-	"MED6": [
+	"OST4": [
 		"CAOV3_OVARY",
-		"HEPG2_LIVER"
+		"HEPG2_LIVER",
+		"X786O_KIDNEY",
+		"X786O_KIDNEY"
 	]
 }
