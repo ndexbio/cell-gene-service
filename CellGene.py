@@ -1,6 +1,7 @@
 # Author: Massoud Maher
 
 import pandas as pd
+import json
 
 class CellGene(object):
   """Class for reading in cell-gene matrix and fetching data from it
@@ -23,7 +24,7 @@ class CellGene(object):
 
   def test(self):
     """Function to test this class during development"""
-    print self.cell_matrix["X769P_KIDNEY"]
+    print self.get_all_ids()
 
   def get_abundance(self, cell_line, gene):
     """Fetches the abundance value for a given cell-line / gene pair
@@ -62,3 +63,12 @@ class CellGene(object):
     except KeyError:
       return None
 
+  def get_all_ids(self):
+    """Returns list of all gene IDs"""
+    return json.dump( self.cell_matrix.index.values )
+
+  def get_all_cells(self):
+    """Returns list of all cell-lines"""
+    
+cg = CellGene()
+cg.test()
