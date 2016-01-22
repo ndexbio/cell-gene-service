@@ -3,13 +3,13 @@
 		"X769P_KIDNEY",
 		"X786O_KIDNEY"
 	],
-	"MED6": [
+	"MeD6": [
 		"X769P_KIDNEY",
-		"X786O_KIDNEY"
+		"X786O_KiDNEY"
 	],
 	"OST4": [
 		"CAOV3_OVARY",
-		"HEPG2_LIVER",
+		"HEPG2_lIvER",
 		"X786O_KIDNEY",
 		"X786O_KIDNEY"
 	]

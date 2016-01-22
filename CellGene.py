@@ -3,6 +3,10 @@
 import pandas as pd
 import json
 
+# Maps dataset names to be put in to URL to respective filenames
+dataset_dict = {'CCLE_protein':'CCLE_inferred_prot_abundance.tab'}
+
+# TODO Check case sensitivity
 class CellGene(object):
   """Class for reading in cell-gene matrix and fetching data from it
 
@@ -13,18 +17,26 @@ class CellGene(object):
 
   """
 
-  def __init__(self):
+
+  def __init__(self, dataset):
     """Reads cell-gene matrix into memory
+
+    Params:
+      dataset name of dataset to be put into URL
 
     Returns:
       CellGene object with matrix read in
     """
+
+    filename = dataset_dict[dataset]
     self.cell_matrix = pd.read_csv('CCLE_inferred_prot_abundance.tab', sep='\t', index_col="Description")
     
 
   def test(self):
     """Function to test this class during development"""
-    print self.get_all_ids()
+    ids = self.get_all_ids()
+    print type(ids)
+    print ids
 
   def get_abundance(self, cell_line, gene):
     """Fetches the abundance value for a given cell-line / gene pair
@@ -65,10 +77,12 @@ class CellGene(object):
 
   def get_all_ids(self):
     """Returns list of all gene IDs"""
-    return json.dump( self.cell_matrix.index.values )
+    #return self.cell_matrix.index.values
+    return json.dumps(list(self.cell_matrix.index.values))
+
 
   def get_all_cells(self):
     """Returns list of all cell-lines"""
     
-cg = CellGene()
-cg.test()
+#cg = CellGene('CCLE_protein')
+#cg.test()

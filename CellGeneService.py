@@ -5,14 +5,14 @@ import pandas as pd
 import CellGene
 from bottle import route, run, template, request, response
 
-cg = CellGene.CellGene()
+cg = CellGene.CellGene('CCLE_protein')
 
 class CellGeneService(object):
   """Runs REST service that fetches abundance values for cell-gene pair"""
 
   @route('/context/expression/cell_line', method='POST')
   def test_json():
-    """Returns a JSON of abundance values for the provided JSON inputs
+    """Returns a JSON of abundance values for the provided JSON inputs for CCLE_protein dataset
 
     Returns:
       A JSON string representing the associated abundance values of cell_line and gene. See JSON format in README
@@ -23,6 +23,14 @@ class CellGeneService(object):
     input_set = request.json
     output_df = pd.DataFrame()
 
+    # Make all inputs uppercase
+    new_input_set = {}
+    for k, v in input_set.iteritems():
+      # Make all cell lines uppercase
+      new_v = [cell.upper() for cell in v]
+      new_input_set[k.upper()] = new_v  
+    
+    input_set = new_input_set
 
     # For each gene
     for key in input_set.keys():
@@ -50,7 +58,7 @@ class CellGeneService(object):
 
   @route('/context/expression/cell_line/ids_available', method='GET')
   def get_ids():
-    
+    return    
   
 
   def main():
