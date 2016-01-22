@@ -34,8 +34,6 @@ class CellGene(object):
   def test(self):
     """Function to test this class during development"""
     ids = self.get_all_ids()
-    print type(ids)
-    print ids
 
   def get_abundance(self, cell_line, gene):
     """Fetches the abundance value for a given cell-line / gene pair

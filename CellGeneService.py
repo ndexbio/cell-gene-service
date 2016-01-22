@@ -59,11 +59,13 @@ class CellGeneService(object):
   @route('/context/expression/cell_line/ids_available/<dataset>', method='GET')
   def get_ids(dataset):
     print cg.get_all_ids()
+    response.content_type = "application/json"
     return cg.get_all_ids()   
   
   @route('/context/expression/cell_line/samples_available/<dataset>', method='GET')
   def get_samples(dataset):
     print cg.get_all_samples()   
+    response.content_type = "application/json"
     return cg.get_all_samples()   
 
   def main():
