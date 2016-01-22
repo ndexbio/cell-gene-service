@@ -56,10 +56,15 @@ class CellGeneService(object):
     response.content_type = "application/json"
     return output_json
 
-  @route('/context/expression/cell_line/ids_available', method='GET')
-  def get_ids():
-    return    
+  @route('/context/expression/cell_line/ids_available/<dataset>', method='GET')
+  def get_ids(dataset):
+    print cg.get_all_ids()
+    return cg.get_all_ids()   
   
+  @route('/context/expression/cell_line/samples_available/<dataset>', method='GET')
+  def get_samples(dataset):
+    print cg.get_all_samples()   
+    return cg.get_all_samples()   
 
   def main():
     """Runs the service on localhost:8080"""

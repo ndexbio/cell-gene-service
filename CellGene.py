@@ -6,7 +6,6 @@ import json
 # Maps dataset names to be put in to URL to respective filenames
 dataset_dict = {'CCLE_protein':'CCLE_inferred_prot_abundance.tab'}
 
-# TODO Check case sensitivity
 class CellGene(object):
   """Class for reading in cell-gene matrix and fetching data from it
 
@@ -77,8 +76,11 @@ class CellGene(object):
 
   def get_all_ids(self):
     """Returns list of all gene IDs"""
-    #return self.cell_matrix.index.values
     return json.dumps(list(self.cell_matrix.index.values))
+
+  def get_all_samples(self):
+    """Returns json of all cell lines"""
+    return json.dumps(list(self.cell_matrix.columns.values))
 
 
   def get_all_cells(self):
