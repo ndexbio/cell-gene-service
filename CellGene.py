@@ -80,9 +80,5 @@ class CellGene(object):
     """Returns json of all cell lines"""
     return json.dumps(list(self.cell_matrix.columns.values))
 
-
-  def get_all_cells(self):
-    """Returns list of all cell-lines"""
-    
 #cg = CellGene('CCLE_protein')
 #cg.test()

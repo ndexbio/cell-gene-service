@@ -47,24 +47,19 @@ class CellGeneService(object):
       output_df = output_df.append(abundance_list)
 
 
-    print "----------------- output_df -----------------"
-    print output_df
-    print "---------- index json -------------"
     output_json = output_df.to_json(orient="index")
-    print output_json 
-
     response.content_type = "application/json"
     return output_json
 
   @route('/context/expression/cell_line/ids_available/<dataset>', method='GET')
   def get_ids(dataset):
-    print cg.get_all_ids()
+    "Returns json of all genes"
     response.content_type = "application/json"
     return cg.get_all_ids()   
   
   @route('/context/expression/cell_line/samples_available/<dataset>', method='GET')
   def get_samples(dataset):
-    print cg.get_all_samples()   
+    "Returns json of all cell lines"
     response.content_type = "application/json"
     return cg.get_all_samples()   
 
