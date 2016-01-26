@@ -4,6 +4,7 @@ import json
 import pandas as pd
 import CellGene
 from bottle import route, run, template, request, response
+from bottledaemon import daemon_run
 
 cg = CellGene.CellGene('CCLE_protein')
 

@@ -1,1 +1,1 @@
-curl -H "Content-Type: application/json" --data @body.json http://localhost:8080/ui/webapp/conf
+curl -H "Content-Type: application/json" --data @input.json http://localhost:8080/context/expression/cell_line
