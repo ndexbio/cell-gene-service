@@ -1,0 +1,16 @@
+{
+	"AKT3": [
+		"X769P_KIDNEY",
+		"X786O_KIDNEY"
+	],
+	"MED6": [
+		"X769P_KIDNEY",
+		"X786O_KiDNEY"
+	],
+	"foo": [
+		"CAOV3_OVARY",
+		"HEPG2_LIVER",
+		"X786O_KIDNEY",
+		"X786O_KIDNEY"
+	],
+}

@@ -8,6 +8,8 @@ from bottledaemon import daemon_run
 
 cg = CellGene.CellGene('CCLE_protein')
 
+# TODO handle non-existent gene and cell input
+# TODO handle invalid json synax
 class CellGeneService(object):
   """Runs REST service that fetches abundance values for cell-gene pair"""
 
