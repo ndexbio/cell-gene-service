@@ -23,7 +23,7 @@
     return route.call(**args)
   File &quot;/Users/massoudmaher/anaconda/lib/python2.7/site-packages/bottle.py&quot;, line 1732, in wrapper
     rv = callback(*a, **ka)
-  File &quot;CellGeneService.py&quot;, line 24, in test_json
+  File &quot;CellGeneService.py&quot;, line 27, in test_json
     input_set = request.json
   File &quot;/Users/massoudmaher/anaconda/lib/python2.7/site-packages/bottle.py&quot;, line 166, in __get__
     if key not in storage: storage[key] = self.getter(obj)

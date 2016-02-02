@@ -10,6 +10,7 @@ cg = CellGene.CellGene('CCLE_protein')
 
 # TODO handle non-existent gene and cell input
 # TODO handle invalid json synax
+# Note, if a gene is defined twice in input, first one is used, all others are ignored
 class CellGeneService(object):
   """Runs REST service that fetches abundance values for cell-gene pair"""
 
@@ -26,6 +27,7 @@ class CellGeneService(object):
     input_set = request.json
     output_df = pd.DataFrame()
 
+    """
     # Make all inputs uppercase
     new_input_set = {}
     for k, v in input_set.iteritems():
@@ -34,16 +36,24 @@ class CellGeneService(object):
       new_input_set[k.upper()] = new_v  
     
     input_set = new_input_set
+    """
 
     # For each gene
-    for key in input_set.keys():
-      # Get abundance for its associated cells and append onto output_df
+    for key, val in input_set.iteritems():
 
-      # Remove duplicate cell lines and get list of values
+      # Make genes uppercase
+      input_set[key.upper()] = input_set[key]
+      del input_set[key]
+      key = key.upper()
+      # Make cell lines uppercase
+      input_set[key] = [cell.upper() for cell in val] 
+
+      # Remove duplicate cell lines 
       cell_lines = set(input_set[key])
-      abundance_list = cg.get_abundance(key, cell_lines)
 
-      # If gene is already in output dataframe, skip it
+      # Get abundance for its associated cells and append onto output_df
+      abundance_list = cg.get_abundance(key, cell_lines)
+      # Skip ducplicate genes
       if key in output_df.index.values:
         break
 

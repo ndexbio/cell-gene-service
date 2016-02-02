@@ -21,7 +21,6 @@ def compare_outputs(expected_fp, actual_fp):
 print "Test case 1: duplicate cell lines, lowercase gene and cell-line"
 compare_outputs("expected/duplicate_gene_exp.json", "output/duplicate_cell_out.json")
 
-
 print "Test case 2: duplicate genes"
 compare_outputs("expected/duplicate_gene_exp.json", "output/duplicate_gene_out.json")
 
