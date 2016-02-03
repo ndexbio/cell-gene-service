@@ -38,7 +38,7 @@ class CellGeneService(object):
     input_set = new_input_set
     """
 
-    # For each gene
+    # For all inputs
     for key, val in input_set.iteritems():
 
       # Make genes uppercase
@@ -63,6 +63,7 @@ class CellGeneService(object):
     output_json = output_df.to_json(orient="index")
     response.content_type = "application/json"
     return output_json
+
 
   @route('/context/expression/cell_line/ids_available/<dataset>', method='GET')
   def get_ids(dataset):

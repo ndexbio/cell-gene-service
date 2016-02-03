@@ -35,7 +35,7 @@ class CellGene(object):
     """Function to test this class during development"""
     ids = self.get_all_ids()
 
-  def get_abundance(self, cell_line, gene):
+  def get_abundance(self, gene, cell_line):
     """Fetches the abundance value for a given cell-line / gene pair
 
     Args:
@@ -49,10 +49,35 @@ class CellGene(object):
       a numpy number if both inputs are single values
       Returns Null if input is invalid (including integers) or not found in matrix
     """
+
+    # Check if inputs are contained in matrix, remove them if they're not
+    if type(cell_line) is set:
+      for item in cell_line:
+        if not (item in self.cell_matrix.columns):
+          print "*************************************"
+          print item + " not found in matrix, skipping"
+          cell_line.remove(item)
+    elif not (cell_line in self.cell_matrix.columns):
+      print "*************************************"
+      print cell_line + " not found in matrix, data lookup failed"
+      return None
+
+    if type(gene) is set:
+      for item in gene:
+        if not (item in self.cell_matrix.index):
+          print "*************************************"
+          print item + " not found in matrix, skipping"
+          gene.remove(item)
+    elif not (gene in self.cell_matrix.index):
+      print "*************************************"
+      print gene + " not found in matrix, data lookup failed"
+      return None
+
     try:
-      return self.cell_matrix.loc[cell_line, gene]
+      return self.cell_matrix.loc[gene, cell_line]
     except:
-     return None
+      print "Error in get_abundance()!"
+      return None
 
 
   def get_abundance_json(self, cell_line, gene):
@@ -67,10 +92,32 @@ class CellGene(object):
       Returns Null if input is invalid (including integers) or not found in matrix
     """
     try:
-      results = self.cell_matrix.loc[cell_line, gene]
+      results = self.get_abundance(cell_line, gene)
       return results.to_json(orient='index')
     except KeyError:
+      print "Error in get_abundance_json()!"
       return None
+
+  def get_abundance_tab(self, cell_line, gene, filename):
+    """Fetches the abundance value for a given cell-line / gene pair
+
+    Args:
+      cell_line: String that is name of cell line or set of those names
+      gene: String that is name of gene or set of those names
+      filename: output file name
+
+    Returns:
+      A tab-seperated text file in the working directory containing the inputs and their associated abundances
+    """
+    try:
+      results = self.get_abundance(cell_line, gene)
+      return results.to_csv(filename)
+    except KeyError:
+      print "Error in get_abundance_json()!"
+      return None
+
+
+
 
   def get_all_ids(self):
     """Returns list of all gene IDs"""

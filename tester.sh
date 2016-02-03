@@ -23,6 +23,9 @@ curl -H "Content-Type: application/json" --data @input/non_ex_gene.json http://l
 # Test case 5: invalid json syntax
 # Test case 6: get all genes works
 # Test case 7: get all cell-lines works
+# Test case 8: singular inputs
+# Test case 9: end up with empty set input to get_abundance or null input to get_abundance
+# Test case 10: handle None output from get abundance
 
 echo "-------------- Test case results --------------"
 # Run python script to check outputs

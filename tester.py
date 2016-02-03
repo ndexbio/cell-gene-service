@@ -15,7 +15,8 @@ def compare_outputs(expected_fp, actual_fp):
   if(expected_json == actual_json):
     print "Passed!"
   else:
-    print "Failed!" + expected_fp + " != " + actual_fp
+    print "Failed!"
+    print expected_fp + " != " + actual_fp
 
 
 print "Test case 1: duplicate cell lines, lowercase gene and cell-line"
@@ -26,4 +27,3 @@ compare_outputs("expected/duplicate_gene_exp.json", "output/duplicate_gene_out.j
 
 print "Test case 3: nonexistent gene"
 compare_outputs("expected/non_ex_gene_exp.json", "output/non_ex_gene_out.json")
-
