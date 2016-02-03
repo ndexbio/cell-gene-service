@@ -27,3 +27,6 @@ compare_outputs("expected/duplicate_gene_exp.json", "output/duplicate_gene_out.j
 
 print "Test case 3: nonexistent gene"
 compare_outputs("expected/non_ex_gene_exp.json", "output/non_ex_gene_out.json")
+
+print "Test case 4: nonexistent cell-line"
+compare_outputs("expected/non_ex_cell_exp.json", "output/non_ex_cell_out.json")

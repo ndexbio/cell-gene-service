@@ -52,26 +52,35 @@ class CellGene(object):
 
     # Check if inputs are contained in matrix, remove them if they're not
     if type(cell_line) is set:
+      new_cell_line = []
       for item in cell_line:
+        # If item is not in matrix, do not copy it over
         if not (item in self.cell_matrix.columns):
           print "*************************************"
           print item + " not found in matrix, skipping"
-          cell_line.remove(item)
+          continue
+        else:
+          new_cell_line.append(item)
+        cell_line = new_cell_line
     elif not (cell_line in self.cell_matrix.columns):
       print "*************************************"
       print cell_line + " not found in matrix, data lookup failed"
       return None
 
     if type(gene) is set:
+      new_gene = []
       for item in gene:
         if not (item in self.cell_matrix.index):
           print "*************************************"
           print item + " not found in matrix, skipping"
-          gene.remove(item)
+        else:
+          new_gene.append(item)
+        gene = new_gene
     elif not (gene in self.cell_matrix.index):
       print "*************************************"
       print gene + " not found in matrix, data lookup failed"
       return None
+
 
     try:
       return self.cell_matrix.loc[gene, cell_line]

@@ -20,6 +20,8 @@ curl -H "Content-Type: application/json" --data @input/duplicate_gene.json http:
 curl -H "Content-Type: application/json" --data @input/non_ex_gene.json http://localhost:8080/context/expression/cell_line > output/non_ex_gene_out.json
 
 # Test case 4: nonexistent cell line
+curl -H "Content-Type: application/json" --data @input/non_ex_cell.json http://localhost:8080/context/expression/cell_line > output/non_ex_cell_out.json
+
 # Test case 5: invalid json syntax
 # Test case 6: get all genes works
 # Test case 7: get all cell-lines works
