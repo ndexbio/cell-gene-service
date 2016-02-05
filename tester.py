@@ -30,3 +30,9 @@ compare_outputs("expected/non_ex_gene_exp.json", "output/non_ex_gene_out.json")
 
 print "Test case 4: nonexistent cell-line"
 compare_outputs("expected/non_ex_cell_exp.json", "output/non_ex_cell_out.json")
+
+print "Test case 5: entire cell set is nonexistent"
+compare_outputs("expected/many_non_ex_cell_exp.json", "output/many_non_ex_cell_out.json")
+
+print "Test case 6: single cell and gene"
+compare_outputs("expected/single_cell_exp.json", "output/single_cell_out.json")

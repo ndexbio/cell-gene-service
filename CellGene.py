@@ -58,7 +58,7 @@ class CellGene(object):
     try:
       return self.cell_matrix.loc[gene, cell_line]
     except:
-      print "Error in get_abundance()!"
+      print "Error in get_abundance(), cannot get value from: " + str(gene) + ", " + str(cell_line)
       return None
 
   def __check_validity(self, cell_line, gene):

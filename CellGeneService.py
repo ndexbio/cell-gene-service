@@ -10,7 +10,6 @@ cg = CellGene.CellGene('CCLE_protein')
 
 # TODO handle invalid json synax
 # TODO handle multiple cell line input where none are in data
-# TODO tab output
 # Note, if a gene is defined twice in input, first one is used, all others are ignored
 class CellGeneService(object):
   """Runs REST service that fetches abundance values for cell-gene pair"""
