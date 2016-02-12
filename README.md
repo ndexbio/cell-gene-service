@@ -1,5 +1,5 @@
 # cell-gene-service
-Repo for a REST service that fetches abundance valeus fro gene - cell line pairs
+Repo for a REST service that fetches abundance values for gene - cell line pairs
 
 
 ## Description
