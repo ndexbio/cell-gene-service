@@ -14,8 +14,8 @@ cg = CellGene.CellGene('CCLE_protein')
 # Note, if a gene is defined twice in input, first one is used, all others are ignored
 """Runs REST service that fetches abundance values for cell-gene pair"""
 
-@route('/context/expression/cell_line/<dataset>', method='POST')
-def test_json(dataset):
+@route('/context/expression/cell_line', method='POST')
+def test_json():
   """Returns a JSON of abundance values for the provided JSON inputs for CCLE_protein dataset
 
   Returns:

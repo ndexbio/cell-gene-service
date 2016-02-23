@@ -8,28 +8,34 @@ Service works through POST request with JSON body.
 ### Input JSON Format
 ```json
 {
-  "gene_name" : [
-    "cell_line_name",
-    "cell_line2_name"
-  ],
-  "gene_name" : [
-    "cell_line_name",
-    "cell_line2_name"
-  ]
+  "input": {
+
+    "dataset":"<name of dataset>"
+    
+    "data" : {
+      "<gene_name>" : [
+        "<cell_line_name>",
+        "<cell_line2_name>"
+      ],
+      "<gene_name>" : [
+        "<cell_line_name>",
+        "<cell_line2_name>"
+      ]
+    }
 }
 ```
 
 ### Output JSON Format
 ```json
 {
-  "gene_name" : {
-    "cell_line_name":abundance_val,
-    "cell_line2_name": abundance_val
+  "<gene_name>" : {
+    "<cell_line_name>":abundance_val,
+    "<cell_line2_name>": abundance_val
   },
-  "gene_name" : {
-    "cell_line_name":abundance_val,
-    "cell_line2_name": abundance_val
+  "<gene_name>" : {
+    "<cell_line_name>":abundance_val,
+    "<cell_line2_name>": abundance_val
   }
 }
 ```
-where abundance_val is a number
+where abundance_val is a number. Only dataset available right now is marked as "CCLE" in the input json

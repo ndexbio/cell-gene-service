@@ -1,5 +1,12 @@
 {
-	"AKT3": [
-		"X769P_KIDNEY"
-	]
+  "input" : {
+
+    "dataset" : "CCLE",
+
+    "data" : {
+      "AKT3": [
+        "X769P_KIDNEY"
+      ]
+    }
+  }
 }
