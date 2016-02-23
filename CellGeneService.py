@@ -14,8 +14,8 @@ cg = CellGene.CellGene('CCLE_protein')
 # Note, if a gene is defined twice in input, first one is used, all others are ignored
 """Runs REST service that fetches abundance values for cell-gene pair"""
 
-@route('/context/expression/cell_line', method='POST')
-def test_json():
+@route('/context/expression/cell_line/<dataset>', method='POST')
+def test_json(dataset):
   """Returns a JSON of abundance values for the provided JSON inputs for CCLE_protein dataset
 
   Returns:
@@ -25,7 +25,7 @@ def test_json():
   print "REQUEST RECEIVED!!!!"
 
   # Initialize input dict, CellGene object, output dataframe
-  input_set = request.json
+  input_set = request.json["input"]["data"]
   output_df = pd.DataFrame()
 
   # For all inputs
@@ -96,7 +96,6 @@ def get_tab():
   response.content_type = "application/json"
   return output_json
 
-
 @route('/context/expression/cell_line/ids_available/<dataset>', method='GET')
 def get_ids(dataset):
   "Returns json of all genes"
@@ -108,13 +107,6 @@ def get_samples(dataset):
   "Returns json of all cell lines"
   response.content_type = "application/json"
   return cg.get_all_samples()   
-  
-  """
-  def main():
-    """Runs the service on localhost:8080"""
-    run(host='0.0.0.0', port=8080, debug=True)
 
-  if __name__ == "__main__":
-    main()
-  """
+# Start service
 run(host='0.0.0.0', port=8080, debug=True)

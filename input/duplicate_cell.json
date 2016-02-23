@@ -1,16 +1,25 @@
 {
-	"AKT3": [
-		"X769P_KIDNEY",
-		"X786O_KIDNEY"
-	],
-	"MeD6": [
-		"X769P_KIDNEY",
-		"X786O_KiDNEY"
-	],
-	"OST4": [
-		"CAOV3_OVARY",
-		"HEPG2_LIvER",
-		"X786O_KIDNEY",
-		"X786O_KIDNEY"
-	]
+ 
+  "input" : {
+
+    "dataset" : "CCLE",
+
+    "data" : {
+      "AKT3": [
+        "X769P_KIDNEY",
+        "X786O_KIDNEY"
+      ],
+      "MeD6": [
+        "X769P_KIDNEY",
+        "X786O_KiDNEY"
+      ],
+      "OST4": [
+        "CAOV3_OVARY",
+        "HEPG2_LIvER",
+        "X786O_KIDNEY",
+        "X786O_KIDNEY"
+      ]
+    }
+  }
+
 }
