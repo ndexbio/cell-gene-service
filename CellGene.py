@@ -4,7 +4,7 @@ import pandas as pd
 import json
 
 # Maps dataset names to be put in to URL to respective filenames
-dataset_dict = {'CCLE_protein':'CCLE_inferred_prot_abundance.tab'}
+dataset_dict = {'CCLE_protein':'CCLE_inferred_prot_abundance.tab', 'CCLE_mutations':'CCLE_mutated.tab', 'CCLE_amplifications':'CCLE_amplified.tab', 'CCLE_deletions':'CCLE_deleted.tab'}
 
 class CellGene(object):
   """Class for reading in cell-gene matrix and fetching data from it
@@ -28,8 +28,7 @@ class CellGene(object):
     """
 
     filename = dataset_dict[dataset]
-    self.cell_matrix = pd.read_csv('CCLE_inferred_prot_abundance.tab', sep='\t', index_col="Description")
-    
+    self.cell_matrix = pd.read_csv(filename, sep='\t', index_col="Description")
 
   def test(self):
     """Function to test this class during development"""
